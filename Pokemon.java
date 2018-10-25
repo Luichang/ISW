@@ -1,8 +1,8 @@
 
 public class Pokemon {
 		
-	private String name;
-	private Type type;
+    private String name;
+    private Type type;
 	private int number;
 	private Trainer trainer;
 	private static int nextnumber = 1;
@@ -12,14 +12,14 @@ public class Pokemon {
 	
 	public Pokemon(String name, Type type) {
 		// convention is to start variable names small
-		this.name = name; 
-		this.type = type;
-		this.number = Pokemon.nextnumber;
-		Pokemon.nextnumber = Pokemon.nextnumber + 1;
+	this.name = name; 
+	this.type = type;
+	this.number = Pokemon.nextnumber;
+	Pokemon.nextnumber = Pokemon.nextnumber + 1;
 	}
 	
 	public String getName() {
-		return name;
+	return name;
 	}
 	
 	/* 
@@ -30,42 +30,43 @@ public class Pokemon {
 	 */
 	//SETTER METHODEN
 	public void setName(String name) {
-		this.name = name;
+	this.name = name;
 	}
 
 	public void setType(Type type) {
-		this.type = type;
+	this.type = type;
 	}
 	
 	//GETTER METHODEN
 	public int getNumber() {
-		return this.number;
+	return this.number;
 	}
 	
 	public Type getType() {
-		return type;
+	return type;
 	}
 	
 	public boolean getSwapAllow() {
-		return this.swapAllow;
+	return this.swapAllow;
 	}
 	//WEITERE FUNKTIONEN
+	
 	public String toString() {
 		// returning the result of Number then Name then Type
-		return Integer.toString(this.number) + " " + this.name + " " + this.type.name();
+	return Integer.toString(this.number) + " " + this.name + " " + this.type.name();
 	}
 
 	public Boolean hasTrainer() {
-		return this.trainer != null;
+	return this.trainer != null;
 	}
 	
 	public void addTrainer(Trainer trainer) {
-		this.trainer = trainer;
+	this.trainer = trainer;
 	}
 	
 	public void trade(Swap swap, Trainer trainer) {
-		this.swaps.add(swap);
-		this.trainer = trainer;
+	this.swaps.add(swap);
+	this.trainer = trainer;
 	}
 	
 }
