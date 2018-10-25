@@ -1,5 +1,5 @@
 public class PokemonTest {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 	Pokemon charmander;
 	charmander = new Pokemon("charmander", Type.Fire);
 	Pokemon squirtle = new Pokemon("Squirtle", Type.Poison);
@@ -57,5 +57,5 @@ public class PokemonTest {
 	System.out.println(red.getPokemons());
 	System.out.println("Now what are your Normal Type Pokemon?");
 	System.out.println(red.getPokemons(Type.Normal));
-	}
+    }
 }
