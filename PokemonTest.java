@@ -30,7 +30,7 @@ public class PokemonTest{
 		red.setLastname("ofPallet");
 		System.out.println("Now if only I could remember my grandsons name.");
 		blue = new Trainer("Blue", "Oak");
-		System.out.println("Ah yes thank you " + red.toString() + " it was " + blue.getFirstname() + " " + blue.getLastname());
+		System.out.println("Ah yes thank you " + red.toString() + " it was " + blue.getLastname() + ", " + blue.getFirstname());
 		System.out.println("Now both of you get to choose a Pokemon");
 		System.out.println("Red, you chose Charmander and Blue, you chose Squirtle. Here are your Pokedex. You should register them");
 		red.addPokemon(charmander);

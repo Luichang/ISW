@@ -67,4 +67,9 @@ public class Trainer {
 			pokemon.addTrainer(this);
 		}
 	}
+	
+	public void trade(Pokemon own, Pokemon other) {
+		pokemons.remove(own);
+		this.pokemons.add(other);
+	}
 }
