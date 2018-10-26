@@ -1,3 +1,3 @@
 public enum Type {
-	Fire, Water, Poison, Normal
+    Fire, Water, Poison, Normal
 }
