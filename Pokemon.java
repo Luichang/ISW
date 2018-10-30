@@ -1,4 +1,3 @@
-
 public class Pokemon {
         
   private String name;
@@ -7,6 +6,7 @@ public class Pokemon {
   private Trainer trainer;
   private static int nextnumber = 1;
   private java.util.ArrayList<Swap> swaps;
+  private java.util.ArrayList<Competition> competitions;
   private boolean swapAllow = true;
   // static elements are to be accessed by class, not this.
   
@@ -78,4 +78,30 @@ public class Pokemon {
     this.trainer = trainer;
   }
   
+  public void lose(Competition competition, Trainer trainer) {
+    this.competitions.add(competition);
+    this.trainer = trainer;
+  }  
+ 
+  public boolean won(Pokemon pokemon) {
+    if(this.type == pokemon.type) {
+      double number1 = java.lang.Math.random(); //Zahl von this
+      double number2 = java.lang.Math.random(); //Zahl von pokemon
+      if(number1 > number2) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (this.type == Type.Fire) {
+        return false;
+      }else if(this.type == Type.Poison){
+        return true;
+      } else if(pokemon.type == Type.Poison){
+          return false;
+      } else {
+        return true;
+      }
+    }
+  }
 }
