@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 import pokemon.data.Pokemon;
+import pokemon.data.Type;
+import pokemon.data.Trainer;
 
 /**
  * Pokemon UIDialog displays Pokemons in SWT Table Widget
@@ -81,14 +83,32 @@ public class PokemonUI extends Dialog {
      * @param shell the dialog window
      */
     private void createContents(final Shell shell) {
-
+	// perform general setup of the Table       	
         shell.setLayout(new GridLayout());
         Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
-        // TODO: perform general setup of the Table
-        // TODO: create table headers using TableColumn
-
+        table.setLinesVisible(true);
+        table.setHeaderVisible(true);
+        GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+        data.heightHint = 71;
+        table.setLayoutData(data);
+  
+        // create table headers using TableColumn
+        List<String> heads = getTableHeaders();
+        for (String head : heads) {
+            TableColumn column = new TableColumn(table, SWT.NONE);
+            column.setText(head);
+            column.pack();
+        }
         // TODO: create table rows using TableItem, each row of the table is one Pokemon
-
+        int i=0;
+        for (Pokemon p : getPokemons()) {
+            TableItem item = new TableItem(table, SWT.NONE);
+            item.setText(i++, Integer.toString(p.getNumber()));
+            item.setText(i++, p.getName());
+            item.setText(i++, p.getType().name());
+            //item.setText(string);
+            i = 0;
+        }
         // TODO: implement sorting using addListener(SWT.Selection, new Listener() {...
 
     }

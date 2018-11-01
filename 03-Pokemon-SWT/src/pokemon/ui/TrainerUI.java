@@ -104,6 +104,7 @@ public class TrainerUI extends Dialog {
             item.setText(i++, p.getFirstname());
             item.setText(i++, p.getLastname());
             item.setText(i++, String.valueOf(p.getPokemons().size()));
+            //item.setText(string);
             i = 0;
         }
         // sorting
