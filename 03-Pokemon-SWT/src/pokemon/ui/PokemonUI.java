@@ -106,11 +106,78 @@ public class PokemonUI extends Dialog {
             item.setText(i++, Integer.toString(p.getNumber()));
             item.setText(i++, p.getName());
             item.setText(i++, p.getType().name());
+            item.setText(i++, p.getTrainer().toString());
+            item.setText(i++, String.valueOf(p.getSwaps().size()));
+            item.setText(i++, String.valueOf(p.isSwapAllow()));
+            item.setText(i++, String.valueOf(p.getCompetitions().size()));
             //item.setText(string);
             i = 0;
         }
         // TODO: implement sorting using addListener(SWT.Selection, new Listener() {...
-
+        for (TableColumn column : table.getColumns()) {
+            // create a generic sort listener for each column which sorts
+            // columns descend order
+            column.setData("SortOrder", 0);
+            column.addListener(SWT.Selection, new Listener() {
+                public void handleEvent(Event event) {
+                    // determine the column index
+                    int index = 0;
+                    if (event.widget instanceof TableColumn) {
+                        index = table.indexOf((TableColumn) event.widget);
+                    }
+                    TableItem[] items = table.getItems();
+                    Collator collator = Collator.getInstance(Locale.getDefault());
+                    // fetch the actual sort order for the column
+                    int sortOrder = 0;
+                    try {
+                        sortOrder = Integer.valueOf(column.getData("SortOrder").toString());
+                    } catch (Exception e) {
+                        sortOrder = 0;
+                    }
+  
+                    for (int i = 0; i < items.length; i++) {
+                        String value1 = items[i].getText(index);
+                        for (int j = 0; j < i; j++) {
+                            String value2 = items[j].getText(index);
+                            // sort in descend order
+                            if (sortOrder == 0) {
+                                if (collator.compare(value1, value2) < 0) {
+                                    List<String> values = new ArrayList<String>();
+                                    for (int k = 0; k < heads.size(); k++) {
+                                        values.add(items[i].getText(k));
+                                    }
+                                    items[i].dispose();
+                                    TableItem item = new TableItem(table, SWT.NONE, j);
+                                    item.setText(values.toArray(new String[values.size()]));
+                                    items = table.getItems();
+                                    break;
+                                }
+                            }
+                            // sort ascend order
+                            if (sortOrder == 1) {
+                                if (collator.compare(value1, value2) > 0) {
+                                    List<String> values = new ArrayList<String>();
+                                    for (int k = 0; k < heads.size(); k++) {
+                                        values.add(items[i].getText(k));
+                                    }
+                                    items[i].dispose();
+                                    TableItem item = new TableItem(table, SWT.NONE, j);
+                                    item.setText(values.toArray(new String[values.size()]));
+                                    items = table.getItems();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    // change the actual sort order to the opposite value
+                    if (sortOrder == 0) {
+                        column.setData("SortOrder", 1);
+                    } else {
+                        column.setData("SortOrder", 0);
+                    }
+                }
+            });
+        }
     }
 
     /**
@@ -121,6 +188,12 @@ public class PokemonUI extends Dialog {
     private List<String> getTableHeaders() {
         List<String> ret = new ArrayList<String>();
         // TODO: Create the headers for the Table based on Pokemon attributes
+        for (Field f : Pokemon.class.getDeclaredFields()) {
+            if (!java.lang.reflect.Modifier.isStatic(f.getModifiers())) {
+                ret.add(f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1, f.getName().length()));
+                	//f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1, f.getName().length()));
+            }
+        }
         return ret;
     }
 

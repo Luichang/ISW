@@ -22,11 +22,14 @@ public class PokemonTrainerManager {
      */
     public static void main(String[] args) {
         // create a SWT window
+	
         Display display = new Display();
         Shell shell = new Shell(display);
- //       TrainerUI pui = new TrainerUI(shell, createTrainers());
+        TrainerUI tui = new TrainerUI(shell, createTrainers());
         PokemonUI pui = new PokemonUI(shell, createPokemons());
         pui.open();
+        tui.open();
+        
     }
  
     private static List<Trainer> createTrainers() {
@@ -41,11 +44,14 @@ public class PokemonTrainerManager {
         t1.addPokemon(p2);
         trainers.add(t0);
         trainers.add(t1);
+        pokemons.add(p0);
+        pokemons.add(p1);
+        pokemons.add(p2);
         return trainers;
  
     }
     private static List<Pokemon> createPokemons() {
-	
+	/*
         Pokemon p0 = new Pokemon("Pikachu", Type.Poison);
         pokemons.add(p0);
         Pokemon p1 = new Pokemon("Carapuce", Type.Water);
@@ -59,7 +65,7 @@ public class PokemonTrainerManager {
         t1.addPokemon(p1);
         t1.addPokemon(p2);
         trainers.add(t0);
-        trainers.add(t1);
+        trainers.add(t1);*/
         return pokemons;
  
     }

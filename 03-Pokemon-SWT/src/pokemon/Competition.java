@@ -15,15 +15,15 @@ public class Competition extends Swap {
     private Trainer t1;
     private Trainer t2;
       
-    public Competition(Pokemon pokemon1, Pokemon pokemon2) {
+    public Competition(Pokemon p1, Pokemon p2) {
       this.date = new java.util.Date();
       //this.id = Swap.nextID;
       //Swap.nextID++;
-          this.pokemon1 = pokemon1;
-      this.pokemon2 = pokemon2;
+      this.p1 = p1;
+      this.p2 = p2;
       
-      this.id = this.date.toString() + this.trainer1.toString() + this.trainer2.toString() 
-      + this.pokemon1.toString() + this.pokemon2.toString();
+      this.id = this.date.toString() + this.t1.toString() + this.t2.toString() 
+      + this.p1.toString() + this.p2.toString();
     }
     
     public String getid() {
@@ -31,13 +31,13 @@ public class Competition extends Swap {
     }
     
     public void execute() {
-      if (this.trainer1 != this.trainer2) {
-        if(this.pokemon1.won(this.pokemon2)) {
+      if (this.t1 != this.t2) {
+        if(this.p1.won(this.p2)) {
           System.out.println("Trade was successful");
-          this.pokemon2.lose(this, this.trainer1);
+          this.p2.lose(this, this.t1);
         } else { // ignoring the case of a tie, which in this assignment won't happen
           System.out.println("Trade was successful");
-          this.pokemon1.lose(this, this.trainer2);
+          this.p1.lose(this, this.t2);
         } 
       } else {
         System.out.println("ERROR: You can't comptete with yourself");
