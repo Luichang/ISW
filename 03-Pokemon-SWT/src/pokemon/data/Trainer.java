@@ -34,19 +34,11 @@ public class Trainer {
         return pokemons;
     }
 
-    // for bidirectional linking it is necessary to set this as trainer
-    public void setPokemons(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
-        for (Pokemon p : getPokemons()) {
-            p.setTrainer(this); // set this as trainer for all
-        }
-    }
-
-    public Pokemon getPokemon(int index) {
+    public Pokemon getPokemons(int index) {
         return pokemons.get(index);
     }
 
-    public List<Pokemon> getPokemonsOfType(Type type) {
+    public List<Pokemon> getPokemons(Type type) {
         List<Pokemon> pokemonsOfType = new ArrayList<Pokemon>();
         for (Pokemon p : getPokemons()) {
             if (p.getType() == type) {
@@ -54,6 +46,18 @@ public class Trainer {
             }
         }
         return pokemonsOfType;
+    }
+    
+    public void release(Pokemon own) {
+	pokemons.remove(own);
+    }
+    
+    // for bidirectional linking it is necessary to set this as trainer
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+        for (Pokemon p : getPokemons()) {
+            p.setTrainer(this); // set this as trainer for all
+        }
     }
 
     public void addPokemon(Pokemon pokemon) {

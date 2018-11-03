@@ -5,7 +5,6 @@ import java.util.List;
 
 import pokemon.Competition;
 import pokemon.Swap;
-import pokemon.data.Type;
 
 public class Pokemon {
 
@@ -95,34 +94,35 @@ public class Pokemon {
     }
 
     public void trade(Swap swap, Trainer trainer) {
-	    this.swaps.add(swap);
-	    this.trainer = trainer;
-	  }
+        this.swaps.add(swap);
+        this.trainer = trainer;
+    }
 	  
-	  public void lose(Competition competition, Trainer trainer) {
-	    this.competitions.add(competition);
-	    this.trainer = trainer;
-	  } 
-	  public boolean won(Pokemon pokemon) {
-	      if(this.type == pokemon.type) {
-	        double number1 = java.lang.Math.random(); //Zahl von this
-	        double number2 = java.lang.Math.random(); //Zahl von pokemon
-	        if(number1 > number2) {
-	          return true;
-	        } else {
-	          return false;
-	        }
-	      } else {
-	        if (this.type == Type.Fire) {
-	          return false;
-	        }else if(this.type == Type.Poison){
-	          return true;
-	        } else if(pokemon.type == Type.Poison){
-	            return false;
-	        } else {
-	          return true;
-	        }
-	      }
-	    }
+    public void lose(Competition competition, Trainer trainer) {
+        this.competitions.add(competition);
+        this.trainer = trainer;
+    } 
+
+    public boolean won(Pokemon pokemon) {
+        if (this.type == pokemon.type) {
+            double number1 = java.lang.Math.random(); //Zahl von this
+            double number2 = java.lang.Math.random(); //Zahl von pokemon
+            if (number1 > number2) {
+        	return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (this.type == Type.Fire) {
+        	return false;
+            } else if (this.type == Type.Poison) {
+        	return true;
+            } else if (pokemon.type == Type.Poison) {
+        	return false;
+            } else {
+        	return true;
+            }
+        }
+    }
 	  
 }

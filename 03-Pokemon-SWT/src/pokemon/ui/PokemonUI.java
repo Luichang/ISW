@@ -19,8 +19,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 import pokemon.data.Pokemon;
-import pokemon.data.Type;
-import pokemon.data.Trainer;
 
 /**
  * Pokemon UIDialog displays Pokemons in SWT Table Widget
@@ -100,7 +98,7 @@ public class PokemonUI extends Dialog {
             column.pack();
         }
         // TODO: create table rows using TableItem, each row of the table is one Pokemon
-        int i=0;
+        int i = 0;
         for (Pokemon p : getPokemons()) {
             TableItem item = new TableItem(table, SWT.NONE);
             item.setText(i++, Integer.toString(p.getNumber()));

@@ -21,10 +21,10 @@ public class TreeMenuTest {
         Shell shell = new Shell(display);
         shell.setLayout(new FillLayout());
         final Tree tree = new Tree(shell, SWT.V_SCROLL);
-        for (int i=0; i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             TreeItem item = new TreeItem(tree, SWT.NONE);
             item.setText(String.valueOf(i));
-            for (int j=0; j<3;j++) {
+            for (int j = 0; j < 3; j++) {
                 TreeItem subItem = new TreeItem(item, SWT.NONE);
                 subItem.setText(String.valueOf(i) + " " + String.valueOf(j));
             }
