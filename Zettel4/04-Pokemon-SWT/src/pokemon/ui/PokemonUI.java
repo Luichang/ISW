@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Locale;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Dialog;
@@ -17,8 +21,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.widgets.Text;
 
 import pokemon.data.Pokemon;
+import pokemon.data.Type;
 
 /**
  * Pokemon UIDialog displays Pokemons in SWT Table Widget
@@ -176,6 +185,112 @@ public class PokemonUI extends Dialog {
             // stretch columns to the required width
             column.pack();
         }
+        
+        
+        
+        Menu menuTable = new Menu(table);
+        table.setMenu(menuTable);
+        final TableEditor editor = new TableEditor(table);
+        editor.horizontalAlignment = SWT.LEFT;
+        editor.grabHorizontal = true;
+
+        // Create menu item
+        MenuItem create = new MenuItem(menuTable, SWT.NONE);
+        create.setText("Create Pokemon");
+        create.addSelectionListener(new SelectionListener() {
+            @Override
+	    public void widgetSelected(SelectionEvent e) {
+		// TODO Automatisch generierter Methodenstub
+		//Table createEingabe = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+        	
+        	Pokemon temp = new Pokemon(" ", Type.Fire);
+        	
+        	TableItem item = new TableItem(table, SWT.NONE);
+        	
+        	item.setText(0, String.valueOf(temp.getNumber()));
+        	item.setText(1, temp.getName());
+                item.setText(2, temp.getType().name());
+                item.setText(3, String.valueOf(temp.getTrainer()));
+                item.setText(4, String.valueOf(temp.getSwaps().size()));
+                item.setText(5, String.valueOf(temp.isSwapAllow()));
+                item.setText(6, String.valueOf(temp.getCompetitions().size()));
+                
+                
+                
+                
+	    }
+
+	    @Override
+	    public void widgetDefaultSelected(SelectionEvent e) {
+		// TODO Automatisch generierter Methodenstub
+		
+	    }
+        });
+        
+        MenuItem delete = new MenuItem(menuTable, SWT.NONE);
+        delete.setText("Delete Pokemon");
+        delete.addSelectionListener(new SelectionListener() {
+            @Override
+	    public void widgetSelected(SelectionEvent e) {
+        	Point pt = new Point(e.x, e.y);
+        	int index = table.getTopIndex();
+                while (index < table.getItemCount()) {
+                    boolean visible = false;
+                    final TableItem item = table.getItem(index);
+                    for (int i = 0; i < table.getColumnCount(); i++) {
+                	Rectangle rect = item.getBounds(i);
+                	if (rect.contains(pt)) {
+                	    final int column = i;
+                	    final Text text = new Text(table, SWT.NONE);
+                	    Listener textListener = new Listener() {
+                		public void handleEvent(final Event e) {
+                		    switch (e.type) {
+                		    	case SWT.FocusOut:
+                		    	    item.setText(column, text.getText());
+                		    	    text.dispose();
+                		    	    break;
+                		    	case SWT.Traverse:
+                		    	    switch (e.detail) {
+                		    	    	case SWT.TRAVERSE_RETURN:
+                		    	    	    item.setText(column, text.getText());
+                		    	    	    // FALL THROUGH
+                		    	    	case SWT.TRAVERSE_ESCAPE:
+                		    	    	    text.dispose();
+                		    	    	    e.doit = false;
+                		    	    }
+                		    	    break;
+                		    }
+                		}
+                	    };
+                	    text.addListener(SWT.FocusOut, textListener);
+                	    text.addListener(SWT.Traverse, textListener);
+                	    editor.setEditor(text, item, i);
+                	    text.setText(item.getText(i));
+                	    text.selectAll();
+                	    text.setFocus();
+                	    return;
+                    }
+                  }
+                }
+	    }
+
+	    @Override
+	    public void widgetDefaultSelected(SelectionEvent e) {
+		// TODO Automatisch generierter Methodenstub
+		
+	    }
+        });
+        MenuItem swap = new MenuItem(menuTable, SWT.NONE);
+        swap.setText("Swap Pokemon");
+
+        // Do not show menu, when no item is selected
+        table.addListener(SWT.MenuDetect, new Listener() {
+            public void handleEvent(Event event) {
+                if (table.getSelectionCount() <= 0) {
+                    event.doit = false;
+                }
+            }
+        });
     }
 
     /**
@@ -196,5 +311,5 @@ public class PokemonUI extends Dialog {
         }
         return ret;
     }
-
+  
 }
