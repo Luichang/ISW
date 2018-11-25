@@ -1,0 +1,5 @@
+Begründung Beziehungen Diagramm:
+
+- MovieManager importiert Movie und Performer, weshalb jeweils ein Pfeil von MovieManager auf Movie bzw. Performer mit Multiplizitäten 0* führt.
+- Performer und Movie erben beide von AbstractModelObject via extends, weshalb jeweils ein Pfeil von Performer und Movie aus AbstractModelObject zeigt.
+- Performer spielt in einem Movie mit; jeder Performer ist mit mindestens einem Movie verlinkt.

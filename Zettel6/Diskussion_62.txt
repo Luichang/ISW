@@ -1,0 +1,9 @@
+Leitfrage: Ist es besser, die verwendete Implementierung zu verwenden oder sollen wir die in der Aufgabenstellung
+gegebenen Pläne umsetzen?
+		Flexibilität Implementierung
+Methode A	- 	     o
+Methode B 	++ 	     o
+
+Begründung: Bei Methode A muss man als Director immer auch Performer sein; das ist bei Methode B nicht
+der Fall, da Person vom Sinn her globaler aufzufassen ist. Andererseits muss auch eine Klasse mehr implementiert
+werden.
