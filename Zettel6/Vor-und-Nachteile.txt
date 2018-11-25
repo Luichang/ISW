@@ -1,0 +1,17 @@
+Alternative Programmierung (+ Vorteile/ - Nachteile):
++ Falls man noch eine andere Personengruppe, wie Erziehungsberechtigte bei minderjährigen Künstlern anlegen möchte, welche nicht mit einem Film verlinkt werden, ist das bei der Alternativen möglich
++ Funktionen, die nur für Performer existieren, kann man so ohne Probleme implementieren
+
+- Wenn man nur Performer und Direktor als Personen benötigt, sehr viel zusätzliche Arbeit für Klasse Person.
+- Man müsste viele Funktionen doppelt implementieren, da Performer und Director mehr als nur die persönlichen Daten gemeinsam haben.
+
+ 
+Kann ich von der Oberklasse auch weitere Klassen ableiten, welche nichts mit dem Film zu tun haben?
+
+Option 1: Programmierung mit Klasse Person
+
+
+Option 2: Programmierung wie aktuell
+
+
+ 
