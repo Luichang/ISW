@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Class-Path: swt.jar 
+  com.ibm.icu_56.1.0.v201601250100.jar
+  org.eclipse.core.commands_3.8.0.v20160316-1921.jar
+  org.eclipse.core.databinding_1.6.0.v20160412-0910.jar
+  org.eclipse.core.databinding.beans_1.3.100.v20160509-1025.jar
+  org.eclipse.core.databinding.observable_1.6.0.v20160511-1747.jar
+  org.eclipse.core.databinding.property_1.6.0.v20160427-0852.jar
+  org.eclipse.equinox.common_3.8.0.v20160509-1230.jar
+  org.eclipse.jface_3.12.0.v20160518-1929.jar
+  org.eclipse.jface.databinding_1.8.0.v20160420-2231.jar
+  org.eclipse.osgi_3.11.0.v20160504-1419.jar
+  org.eclipse.ui.workbench_3.108.0.v20160524-1314.jar
+  commons-lang3-3.4.jar
+  junit.jar
+  org.hamcrest.core_1.3.0.v201303031735.jar
+Main-Class: moviemanager.data.MovieManager
+
