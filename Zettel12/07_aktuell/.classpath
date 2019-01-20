@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="icons"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.6.jar" sourcepath="lib/commons-lang3-source-3.6.jar"/>
+	<classpathentry kind="lib" path="lib/swt/win64/swt.jar" sourcepath="lib/swt/win64/source.jar"/>
+	<classpathentry kind="lib" path="lib/com.ibm.icu_58.2.0.jar" sourcepath="lib/com.ibm.icu.source_58.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.ui.workbench_3.110.1.jar" sourcepath="lib/org.eclipse.ui.workbench.source_3.110.1.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.jface_3.12.0.jar" sourcepath="lib/org.eclipse.jface.source_3.12.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.osgi_3.12.50.jar" sourcepath="lib/org.eclipse.osgi.source_3.12.50.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.commands_3.9.0.jar" sourcepath="lib/org.eclipse.core.commands.source_3.9.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.databinding_1.6.100.jar" sourcepath="lib/org.eclipse.core.databinding.source_1.6.100.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.databinding.beans_1.4.0.jar" sourcepath="lib/org.eclipse.core.databinding.beans.source_1.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.databinding.observable_1.6.100.jar" sourcepath="lib/org.eclipse.core.databinding.observable.source_1.6.100.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.databinding.property_1.6.100.jar" sourcepath="lib/org.eclipse.core.databinding.property.source_1.6.100.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.9.0.jar" sourcepath="lib/org.eclipse.equinox.common.source_3.9.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.jface.databinding_1.8.100.jar" sourcepath="lib/org.eclipse.jface.databinding.source_1.8.100.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
