@@ -34,6 +34,7 @@ public class Movie extends AbstractModelObject implements Serializable {
     /** Most recent watch date. **/
     private Date watchDate;
 
+    private Date returnDate;
     /** Runtime in minutes. **/
     private int runtime;
     /**
@@ -82,6 +83,7 @@ public class Movie extends AbstractModelObject implements Serializable {
 
         this.releaseDate = new Date();
         this.watchDate = null;
+        this.returnDate = null;
 
         this.runtime = 0;
         this.rating = 0;
@@ -153,12 +155,21 @@ public class Movie extends AbstractModelObject implements Serializable {
         return watchDate;
     }
 
+    public Date getReturnDate() {
+      return returnDate;
+  }
     public void setWatchDate(Date watchDate) {
         Date oldValue = this.watchDate;
         this.watchDate = watchDate;
         firePropertyChange("watchDate", oldValue, watchDate);
     }
 
+    public void setReturnDate(Date returnDate) {
+      Date oldValue = this.returnDate;
+      this.returnDate = returnDate;
+      firePropertyChange("returnDate", oldValue, returnDate);
+  }
+    
     public int getRuntime() {
         return runtime;
     }

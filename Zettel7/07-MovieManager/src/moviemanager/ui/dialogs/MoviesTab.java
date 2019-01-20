@@ -62,6 +62,7 @@ public class MoviesTab extends AbstractModelObjectTab {
         propertiesList = new ArrayList<String>();
         propertiesList.add("title");
         propertiesList.add("watchDate");
+        propertiesList.add("lendDate");
         propertiesList.add("description");
         propertiesList.add("releaseDate");
         propertiesList.add("rating");
